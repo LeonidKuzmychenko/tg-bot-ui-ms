@@ -9,5 +9,4 @@ public class TgSerialsBotApplication {
     public static void main(String[] args) {
         SpringApplication.run(TgSerialsBotApplication.class, args);
     }
-
 }
