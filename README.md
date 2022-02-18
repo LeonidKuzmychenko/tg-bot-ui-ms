@@ -1,1 +1,0 @@
-# tg-serials-bot
