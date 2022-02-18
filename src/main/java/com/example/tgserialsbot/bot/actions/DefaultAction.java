@@ -2,6 +2,7 @@ package com.example.tgserialsbot.bot.actions;
 
 import com.example.tgserialsbot.bot.Action;
 import com.example.tgserialsbot.bot.ActionCommands;
+import com.example.tgserialsbot.bot.model.BotUser;
 import com.example.tgserialsbot.bot.services.BotUserService;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -15,7 +16,7 @@ public class DefaultAction extends Action {
     }
 
     @Override
-    public void action(Update update, AbsSender absSender) {
+    public void action(Update update, AbsSender absSender, BotUser botUser, String chatId, String text) {
 
     }
 

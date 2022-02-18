@@ -19,14 +19,18 @@ public class TelegramBot extends AbstractTelegramBot {
 
     @Override
     public void messageWithText(Update update, Message message, String chatId, String text) {
-        BotUser user = botUserService.getUser(chatId);
+        BotUser botUser = botUserService.getUserWithCreate(chatId);
 
-        String command = user.getCommand();
+        String command = botUser.getCommand();
         if (command == null) {
             command = text;
         }
 
-        router.get(command).action(update, this);
+        System.out.println();
+        System.out.println(command);
+        System.out.println();
+
+        router.get(command).action(update, this, botUser, chatId, text);
     }
 
     @Override

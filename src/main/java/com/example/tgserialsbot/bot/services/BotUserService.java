@@ -13,7 +13,7 @@ public class BotUserService {
         this.cache = cache;
     }
 
-    public BotUser getUser(String chatId){
+    public BotUser getUserWithCreate(String chatId) {
         BotUser user = cache.getIfPresent(chatId);
         if (user == null) {
             user = new BotUser();
@@ -21,4 +21,15 @@ public class BotUserService {
         }
         return user;
     }
+
+    public BotUser getUserWithOutCreate(String chatId) {
+        return cache.getIfPresent(chatId);
+    }
+
+    public void setCommand(String chatId, String command) {
+        BotUser user = getUserWithOutCreate(chatId);
+        user.setCommand(command);
+        cache.put(chatId, user);
+    }
+
 }

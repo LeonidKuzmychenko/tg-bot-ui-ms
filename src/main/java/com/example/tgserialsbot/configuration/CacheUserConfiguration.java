@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class CacheUserConfiguration {
 
     @Bean("UserCache")
-    public Cache<String, BotUser> cache(){
+    public Cache<String, BotUser> cache() {
         return CacheBuilder.newBuilder()
                 .expireAfterWrite(365, TimeUnit.DAYS)
                 .build();

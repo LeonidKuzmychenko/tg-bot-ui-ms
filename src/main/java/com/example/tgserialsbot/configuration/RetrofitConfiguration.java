@@ -12,7 +12,7 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 public class RetrofitConfiguration {
 
     @Bean
-    public TestService provideRetrofit(ApplicationProperty property){
+    public TestService provideRetrofit(ApplicationProperty property) {
         return new Retrofit.Builder()
                 .baseUrl(property.getServerHost())
                 .addConverterFactory(JacksonConverterFactory.create())

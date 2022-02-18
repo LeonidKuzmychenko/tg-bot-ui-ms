@@ -8,6 +8,6 @@ public class ActionCommands {
 
     public static final String ANY = null;
     public static final String START = "/start";
-    public static final String REGISTRATION = "/registration";
+    public static final String STEP_SERIAL_NAME_SUBSCRIBE_ACTION = "STEP_SERIAL_NAME_SUBSCRIBE_ACTION";
 
 }
