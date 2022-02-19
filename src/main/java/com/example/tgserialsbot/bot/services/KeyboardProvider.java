@@ -1,17 +1,17 @@
 package com.example.tgserialsbot.bot.services;
 
-import com.example.tgserialsbot.bot.constants.ActionMenu;
+import com.example.tgserialsbot.bot.constants.action.ActionCommands;
+import com.example.tgserialsbot.bot.constants.mapkey.ActionMenu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboard;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardRemove;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Component
 public class KeyboardProvider {
@@ -24,37 +24,61 @@ public class KeyboardProvider {
     @Qualifier("tgAnswerVariables")
     public Map<String, String> variables;
 
+    public ReplyKeyboard keyboardUnsubscribeAll() {
+        return new KeyboardProvider().variablesKeyboard(
+                ActionMenu.YES,
+                ActionMenu.NO
+        );
+    }
+
+    public ReplyKeyboard keyboardMenu() {
+        return new KeyboardProvider().variablesManyRowsKeyboard(
+                new String[][]{
+                        {ActionCommands.SUBSCRIBE, ActionCommands.UNSUBSCRIBE},
+                        {ActionCommands.SHOW_SUBSCRIBES, ActionCommands.UNSUBSCRIBE_ALL},
+                        {ActionCommands.MENU}
+                }
+        );
+    }
 
     public ReplyKeyboard keyboardApproveSerial() {
-        return new KeyboardProvider().variablesKeyboard(
-                variables.get(ActionMenu.YES_THIS),
-                variables.get(ActionMenu.NO_SHOW_NEXT),
-                variables.get(ActionMenu.CLOSE)
+        return new KeyboardProvider().variablesManyRowsKeyboard(
+                new String[][]{
+                        {variables.get(ActionMenu.YES_THIS), variables.get(ActionMenu.NO_SHOW_NEXT)},
+                        {variables.get(ActionMenu.CLOSE)}
+                }
         );
     }
 
     public ReplyKeyboard emptyKeyboard() {
-        return null;
+        return new ReplyKeyboardRemove(true);
     }
 
-    private ReplyKeyboard variablesKeyboard(String... variables) {
+    public ReplyKeyboard variablesKeyboard(String... variables) {
         KeyboardRow keyboardRow = new KeyboardRow();
         keyboardRow.addAll(Arrays.asList(variables));
-
         List<KeyboardRow> keyboardRows = new ArrayList<>();
         keyboardRows.add(keyboardRow);
-
         ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
         replyKeyboardMarkup.setKeyboard(keyboardRows);
         replyKeyboardMarkup.setResizeKeyboard(true);
         return replyKeyboardMarkup;
     }
 
-    public ReplyKeyboard emptyKeyboard3() {
-        return null;
+    public ReplyKeyboard variablesManyRowsKeyboard(String[]... variables) {
+        List<KeyboardRow> keyboardRows = new ArrayList<>();
+        for (String[] vars : variables) {
+            List<String> collect = Arrays.stream(vars)
+                    .filter(Objects::nonNull)
+                    .collect(Collectors.toList());
+            KeyboardRow keyboardRow = new KeyboardRow();
+            keyboardRow.addAll(collect);
+            keyboardRows.add(keyboardRow);
+        }
+        ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
+        replyKeyboardMarkup.setKeyboard(keyboardRows);
+        replyKeyboardMarkup.setResizeKeyboard(true);
+        return replyKeyboardMarkup;
     }
 
-    public ReplyKeyboard emptyKeyboard4() {
-        return null;
-    }
 }

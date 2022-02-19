@@ -1,4 +1,4 @@
-package com.example.tgserialsbot.bot.constants;
+package com.example.tgserialsbot.bot.constants.action;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

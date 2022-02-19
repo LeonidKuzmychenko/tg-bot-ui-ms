@@ -1,6 +1,7 @@
 package com.example.tgserialsbot;
 
 import com.example.tgserialsbot.bot.ActionRouter;
+import com.example.tgserialsbot.bot.constants.action.ActionCommands;
 import com.example.tgserialsbot.bot.model.BotUser;
 import com.example.tgserialsbot.bot.services.BotUserService;
 import com.example.tgserialsbot.properties.TelegramProperty;
@@ -21,17 +22,17 @@ public class TelegramBot extends AbstractTelegramBot {
     public void messageWithText(Update update, Message message, String chatId, String text) {
         BotUser botUser = botUserService.getUserWithCreate(chatId);
 
+        if (ActionCommands.LIST.contains(text)) {
+            router.get(text).action(update, botUser, chatId, text);
+            return;
+        }
+
         String command = botUser.getCommand();
         if (command == null) {
             command = text;
         }
-
-        System.out.println();
-        System.out.println(command);
-        System.out.println();
-
-
         router.get(command).action(update, botUser, chatId, text);
+
     }
 
     @Override

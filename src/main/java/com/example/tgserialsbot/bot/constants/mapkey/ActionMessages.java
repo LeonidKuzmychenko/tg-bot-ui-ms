@@ -1,4 +1,4 @@
-package com.example.tgserialsbot.bot.constants;
+package com.example.tgserialsbot.bot.constants.mapkey;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -14,5 +14,8 @@ public class ActionMessages {
     public static final String NEEDED_SERIAL = "needed serial";
     public static final String PROBLEMS = "problems";
     public static final String CHOOSE_A_VARIANT_FROM_OPTIONS = "choose a variant from options";
-
+    public static final String ANSWER_UNSUBSCRIBE_ALL = "answer unsubscribe all";
+    public static final String SUBSCRIBE = "subscribe";
+    public static final String LIST_OF_ALL_SERIALS = "list of all serials";
+    public static final String SEND_ID_SERIAL_FOR_UNSUBSCRIBE = "send id serial for unsubscribe";
 }

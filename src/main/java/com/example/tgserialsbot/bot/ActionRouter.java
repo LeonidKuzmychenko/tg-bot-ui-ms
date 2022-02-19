@@ -1,6 +1,6 @@
 package com.example.tgserialsbot.bot;
 
-import com.example.tgserialsbot.bot.constants.ActionCommands;
+import com.example.tgserialsbot.bot.constants.action.ActionCommands;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
