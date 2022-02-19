@@ -19,28 +19,17 @@ public class UnsubscribeAction extends Action {
             "14567",
             "14598",
             "15642",
-            "14567",
-            "14598",
-            "15642",
-            "15642",
-            "14567",
-            "14598",
-            "15642",
-            "15642",
-            "14567",
-            "14598",
-            "14598",
-            "15642",
-            "14567",
-            "14598",
-            "15642",
+            "16989",
+            "17102",
             "Отмена"
     };
 
     private String[] serials = new String[]{
             "• Сверхъестественное (14567)",
             "• Друзья (14598)",
-            "• Волчонок (15642)"
+            "• Большой куш (15642)",
+            "• Ганнибал (16989)",
+            "• Волчонок (17102)"
     };
 
     protected UnsubscribeAction(MessageSender messageSender, MessageProvider messageProvider, KeyboardProvider keyboardProvider, BotUserService botUserService) {
@@ -54,7 +43,7 @@ public class UnsubscribeAction extends Action {
     }
 
     private String[][] transformSerialIds() {
-        int size = 6;
+        int size = 5;
         if (serialsId.length > size) {
             int scale = (int) Math.ceil(serialsId.length / (double) size);
             String[][] newSerialId = new String[scale][size];

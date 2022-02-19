@@ -16,6 +16,8 @@ public class ShowSubscribesAction extends Action {
     private String[] serials = new String[]{
             "• Сверхъестественное",
             "• Друзья",
+            "• Большой куш",
+            "• Ганнибал",
             "• Волчонок"
     };
 

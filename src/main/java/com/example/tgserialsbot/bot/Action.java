@@ -5,12 +5,14 @@ import com.example.tgserialsbot.bot.services.BotUserService;
 import com.example.tgserialsbot.bot.services.KeyboardProvider;
 import com.example.tgserialsbot.bot.services.MessageProvider;
 import com.example.tgserialsbot.bot.services.MessageSender;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import java.util.Map;
 
+@Slf4j
 public abstract class Action {
 
     @Autowired
@@ -33,7 +35,16 @@ public abstract class Action {
         this.botUserService = botUserService;
     }
 
-    public abstract void action(Update update, BotUser botUser, String chatId, String text);
+    public void run(Update update, BotUser botUser, String chatId, String text) {
+        log.info("__________________________________________");
+        log.info("Start action '{}'", getClass().getSimpleName());
+        log.info("With command = '{}'", botUser.getCommand());
+        log.info("With message = '{}'", text);
+        action(update, botUser, chatId, text);
+        log.info("End action '{}'", getClass().getSimpleName());
+    }
+
+    protected abstract void action(Update update, BotUser botUser, String chatId, String text);
 
     public abstract String getKey();
 

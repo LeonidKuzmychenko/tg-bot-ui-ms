@@ -27,7 +27,7 @@ public class MessageProvider {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId);
         sendMessage.setText(messages.get(ActionMessages.LIST_OF_ALL_SERIALS) + String.join("\n", serials));
-        sendMessage.setReplyMarkup(keyboardProvider.emptyKeyboard());
+        sendMessage.setReplyMarkup(keyboardProvider.keyboardFullMenu());
         return sendMessage;
     }
 
@@ -91,7 +91,7 @@ public class MessageProvider {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId);
         sendMessage.setText(messages.get(ActionMessages.HAS_BEEN_SUBSCRIBE));
-        sendMessage.setReplyMarkup(keyboardProvider.emptyKeyboard());
+        sendMessage.setReplyMarkup(keyboardProvider.keyboardFullMenu());
         return sendMessage;
     }
 
@@ -107,7 +107,7 @@ public class MessageProvider {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId);
         sendMessage.setText(messages.get(ActionMessages.SERIAL_NOT_FOUND));
-        sendMessage.setReplyMarkup(keyboardProvider.emptyKeyboard());
+        sendMessage.setReplyMarkup(keyboardProvider.keyboardFullMenu());
         return sendMessage;
     }
 
@@ -115,10 +115,9 @@ public class MessageProvider {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId);
         sendMessage.setText(messages.get(ActionMessages.SHOW_MENU));
-        sendMessage.setReplyMarkup(keyboardProvider.keyboardMenu());
+        sendMessage.setReplyMarkup(keyboardProvider.keyboardFullMenu());
         return sendMessage;
     }
-
 
     public SendMessage getHelloMessage(String chatId) {
         SendMessage sendMessage = new SendMessage();
@@ -132,7 +131,7 @@ public class MessageProvider {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId);
         sendMessage.setText(messages.get(ActionMessages.HELLO_INPUT));
-        sendMessage.setReplyMarkup(keyboardProvider.emptyKeyboard());
+        sendMessage.setReplyMarkup(keyboardProvider.keyboardMenu());
         return sendMessage;
     }
 

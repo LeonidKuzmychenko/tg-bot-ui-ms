@@ -32,6 +32,12 @@ public class KeyboardProvider {
     }
 
     public ReplyKeyboard keyboardMenu() {
+        return new KeyboardProvider().variablesKeyboard(
+                ActionCommands.MENU
+        );
+    }
+
+    public ReplyKeyboard keyboardFullMenu() {
         return new KeyboardProvider().variablesManyRowsKeyboard(
                 new String[][]{
                         {ActionCommands.SUBSCRIBE, ActionCommands.UNSUBSCRIBE},

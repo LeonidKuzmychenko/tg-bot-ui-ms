@@ -23,7 +23,7 @@ public class TelegramBot extends AbstractTelegramBot {
         BotUser botUser = botUserService.getUserWithCreate(chatId);
 
         if (ActionCommands.LIST.contains(text)) {
-            router.get(text).action(update, botUser, chatId, text);
+            router.get(text).run(update, botUser, chatId, text);
             return;
         }
 
@@ -31,7 +31,7 @@ public class TelegramBot extends AbstractTelegramBot {
         if (command == null) {
             command = text;
         }
-        router.get(command).action(update, botUser, chatId, text);
+        router.get(command).run(update, botUser, chatId, text);
 
     }
 

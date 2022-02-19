@@ -37,7 +37,6 @@ public class AnswerSerialForApproveAction extends Action {
 
     private void approve(String chatId) {
         messageSender.send(messageProvider.getHasBeenSubscribeMessage(chatId));
-        messageSender.send(messageProvider.getMenuMessage(chatId));
         botUserService.setCommand(chatId, null);
     }
 
@@ -47,7 +46,6 @@ public class AnswerSerialForApproveAction extends Action {
 
     private void close(String chatId) {
         messageSender.send(messageProvider.getSerialNotFoundMessage(chatId));
-        messageSender.send(messageProvider.getMenuMessage(chatId));
         botUserService.setCommand(chatId, null);
     }
 
