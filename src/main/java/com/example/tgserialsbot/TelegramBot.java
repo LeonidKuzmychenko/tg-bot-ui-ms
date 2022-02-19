@@ -30,7 +30,8 @@ public class TelegramBot extends AbstractTelegramBot {
         System.out.println(command);
         System.out.println();
 
-        router.get(command).action(update, this, botUser, chatId, text);
+
+        router.get(command).action(update, botUser, chatId, text);
     }
 
     @Override

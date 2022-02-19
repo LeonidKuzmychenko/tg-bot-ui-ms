@@ -1,0 +1,42 @@
+[
+  {
+    "key": "Yes",
+    "value": "Да"
+  },
+  {
+    "key": "No",
+    "value": "Нет"
+  },
+  {
+    "key": "Successful",
+    "value": "Правильно"
+  },
+  {
+    "key": "Failed",
+    "value": "Неправильно"
+  },
+  {
+    "key": "Subscribe",
+    "value": "Подписаться"
+  },
+  {
+    "key": "Unsubscribe",
+    "value": "Отписаться"
+  },
+  {
+    "key": "Menu",
+    "value": "Меню"
+  },
+  {
+    "key": "Close",
+    "value": "Отмена"
+  },
+  {
+    "key": "Yes, this",
+    "value": "Да, этот"
+  },
+  {
+    "key": "No, show next",
+    "value": "Нет, посмотреть следующий"
+  }
+]

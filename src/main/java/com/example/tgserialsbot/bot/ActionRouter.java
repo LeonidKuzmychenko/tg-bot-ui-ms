@@ -1,5 +1,6 @@
 package com.example.tgserialsbot.bot;
 
+import com.example.tgserialsbot.bot.constants.ActionCommands;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -15,6 +16,6 @@ public class ActionRouter {
     }
 
     public Action get(String key) {
-        return driveMap.get(key);
+        return driveMap.getOrDefault(key, driveMap.get(ActionCommands.ANY));
     }
 }

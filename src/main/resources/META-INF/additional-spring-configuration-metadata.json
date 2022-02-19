@@ -3,17 +3,17 @@
     {
       "name": "telegram.bot.name",
       "type": "java.lang.String",
-      "description": "Description for telegram.bot.name."
+      "description": "Название телеграм бота."
     },
     {
       "name": "telegram.bot.token",
       "type": "java.lang.String",
-      "description": "Description for telegram.bot.token."
+      "description": "Токен телеграм бота, который ему дал BotFather при создании."
     },
     {
       "name": "api.server.host",
       "type": "java.lang.String",
-      "description": "Description for api.server.host."
+      "description": "Хост на котором крутится микросервис с логикой."
     }
   ]
 }
