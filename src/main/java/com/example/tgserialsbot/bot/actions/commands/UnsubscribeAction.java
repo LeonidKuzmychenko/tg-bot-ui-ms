@@ -1,7 +1,9 @@
 package com.example.tgserialsbot.bot.actions.commands;
 
 import com.example.tgserialsbot.bot.Action;
+import com.example.tgserialsbot.bot.constants.action.ActionAnswers;
 import com.example.tgserialsbot.bot.constants.action.ActionCommands;
+import com.example.tgserialsbot.bot.constants.mapkey.ActionMessages;
 import com.example.tgserialsbot.bot.model.BotUser;
 import com.example.tgserialsbot.bot.services.BotUserService;
 import com.example.tgserialsbot.bot.services.KeyboardProvider;
@@ -16,20 +18,30 @@ import java.util.Arrays;
 public class UnsubscribeAction extends Action {
 
     private String[] serialsId = new String[]{
-            "14567",
-            "14598",
-            "15642",
-            "16989",
-            "17102",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
             "Отмена"
     };
 
     private String[] serials = new String[]{
-            "• Сверхъестественное (14567)",
-            "• Друзья (14598)",
-            "• Большой куш (15642)",
-            "• Ганнибал (16989)",
-            "• Волчонок (17102)"
+            "1. Сверхъестественное",
+            "2. Друзья",
+            "3. Большой куш",
+            "4. Ганнибал",
+            "5. Волчонок",
+            "6. Сверхъестественное",
+            "7. Друзья",
+            "8. Большой куш",
+            "9. Ганнибал",
+            "10. Волчонок"
     };
 
     protected UnsubscribeAction(MessageSender messageSender, MessageProvider messageProvider, KeyboardProvider keyboardProvider, BotUserService botUserService) {
@@ -38,8 +50,9 @@ public class UnsubscribeAction extends Action {
 
     @Override
     public void action(Update update, BotUser botUser, String chatId, String text) {
-        messageSender.send(messageProvider.getListOfAllSerialsWithIdMessage(chatId, serials));
-        messageSender.send(messageProvider.getSendIdSerialForUnsubscribeMessage(chatId, transformSerialIds()));
+        sendMessage(messageProvider.getListOfAllSerialsWithIdMessage(chatId, serials));
+        sendMessage(messageProvider.getSendIdSerialForUnsubscribeMessage(chatId, transformSerialIds()));
+        setCommand(chatId, ActionAnswers.ANSWER_UNSUBSCRIBE);
     }
 
     private String[][] transformSerialIds() {
@@ -50,7 +63,6 @@ public class UnsubscribeAction extends Action {
             for (int i = 0; i < serialsId.length; i++) {
                 newSerialId[i / size][i % size] = serialsId[i];
             }
-            System.out.println(Arrays.deepToString(newSerialId));
             return newSerialId;
         }
         return new String[][]{serialsId};

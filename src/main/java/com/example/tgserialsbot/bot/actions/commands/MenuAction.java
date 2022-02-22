@@ -19,8 +19,8 @@ public class MenuAction extends Action {
 
     @Override
     public void action(Update update, BotUser botUser, String chatId, String text) {
-        messageSender.send(messageProvider.getMenuMessage(chatId));
-        botUserService.setCommand(chatId, null);
+        setCommand(chatId, null);
+        sendMessage(messageProvider.getMenuMessage(chatId));
     }
 
     @Override

@@ -20,9 +20,9 @@ public class StartAction extends Action {
 
     @Override
     public void action(Update update, BotUser botUser, String chatId, String text) {
-        messageSender.send(messageProvider.getHelloMessage(chatId));
-        messageSender.send(messageProvider.getHelloInputMessage(chatId));
-        botUserService.setCommand(chatId, ActionAnswers.SHOW_SERIAL_FOR_APPROVE);
+        sendMessage(messageProvider.getHelloMessage(chatId));
+        sendMessage(messageProvider.getHelloInputMessage(chatId));
+        setCommand(chatId, ActionAnswers.SHOW_SERIAL_FOR_APPROVE);
     }
 
     @Override

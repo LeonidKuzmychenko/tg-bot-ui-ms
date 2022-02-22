@@ -20,8 +20,8 @@ public class SubscribeAction extends Action {
 
     @Override
     public void action(Update update, BotUser botUser, String chatId, String text) {
-        messageSender.send(messageProvider.getSubscribeMessage(chatId));
-        botUserService.setCommand(chatId, ActionAnswers.SHOW_SERIAL_FOR_APPROVE);
+        sendMessage(messageProvider.getSubscribeMessage(chatId));
+        setCommand(chatId, ActionAnswers.SHOW_SERIAL_FOR_APPROVE);
     }
 
     @Override

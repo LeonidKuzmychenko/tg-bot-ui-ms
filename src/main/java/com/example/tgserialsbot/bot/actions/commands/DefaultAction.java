@@ -19,7 +19,7 @@ public class DefaultAction extends Action {
 
     @Override
     public void action(Update update, BotUser botUser, String chatId, String text) {
-        messageSender.send(messageProvider.getErrorMessage(chatId));
+        sendMessage(messageProvider.getChooseVariantFromOptionsMessage(chatId));
     }
 
     @Override

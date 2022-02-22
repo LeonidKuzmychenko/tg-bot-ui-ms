@@ -1,6 +1,7 @@
 package com.example.tgserialsbot.bot.actions.commands;
 
 import com.example.tgserialsbot.bot.Action;
+import com.example.tgserialsbot.bot.constants.action.ActionAnswers;
 import com.example.tgserialsbot.bot.constants.action.ActionCommands;
 import com.example.tgserialsbot.bot.model.BotUser;
 import com.example.tgserialsbot.bot.services.BotUserService;
@@ -19,7 +20,8 @@ public class UnsubscribeAllAction extends Action {
 
     @Override
     public void action(Update update, BotUser botUser, String chatId, String text) {
-        messageSender.send(messageProvider.getUnsubscribeAllMessage(chatId));
+        sendMessage(messageProvider.getUnsubscribeAllMessage(chatId));
+        setCommand(chatId, ActionAnswers.ANSWER_UNSUBSCRIBE_ALL);
     }
 
     @Override

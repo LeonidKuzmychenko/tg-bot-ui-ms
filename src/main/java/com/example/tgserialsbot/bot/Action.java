@@ -1,5 +1,6 @@
 package com.example.tgserialsbot.bot;
 
+import com.example.tgserialsbot.bot.constants.action.ActionAnswers;
 import com.example.tgserialsbot.bot.model.BotUser;
 import com.example.tgserialsbot.bot.services.BotUserService;
 import com.example.tgserialsbot.bot.services.KeyboardProvider;
@@ -8,6 +9,8 @@ import com.example.tgserialsbot.bot.services.MessageSender;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import java.util.Map;
@@ -23,10 +26,11 @@ public abstract class Action {
     @Qualifier("tgAnswerVariables")
     public Map<String, String> variables;
 
-    public final MessageSender messageSender;
     public final MessageProvider messageProvider;
     public final KeyboardProvider keyboardProvider;
-    public final BotUserService botUserService;
+
+    private final MessageSender messageSender;
+    private final BotUserService botUserService;
 
     protected Action(MessageSender messageSender, MessageProvider messageProvider, KeyboardProvider keyboardProvider, BotUserService botUserService) {
         this.messageSender = messageSender;
@@ -42,6 +46,18 @@ public abstract class Action {
         log.info("With message = '{}'", text);
         action(update, botUser, chatId, text);
         log.info("End action '{}'", getClass().getSimpleName());
+    }
+
+    public void sendMessage(SendMessage sendMessage){
+        messageSender.send(sendMessage);
+    }
+
+    public void sendMessage(SendPhoto sendPhoto){
+        messageSender.send(sendPhoto);
+    }
+
+    public void setCommand(String chatId, String command){
+        botUserService.setCommand(chatId, command);
     }
 
     protected abstract void action(Update update, BotUser botUser, String chatId, String text);

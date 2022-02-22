@@ -19,7 +19,8 @@ public class SerialNotFoundAction extends Action {
 
     @Override
     public void action(Update update, BotUser botUser, String chatId, String text) {
-        messageSender.send(messageProvider.getSerialNotFoundMessage(chatId));
+        sendMessage(messageProvider.getSerialNotFoundMessage(chatId));
+        setCommand(chatId, null);
     }
 
     @Override

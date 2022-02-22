@@ -27,7 +27,8 @@ public class ShowSubscribesAction extends Action {
 
     @Override
     public void action(Update update, BotUser botUser, String chatId, String text) {
-        messageSender.send(messageProvider.getShowAllSubscribesMessage(chatId, serials));
+        sendMessage(messageProvider.getShowAllSubscribesMessage(chatId, serials));
+        setCommand(chatId, null);
     }
 
     @Override

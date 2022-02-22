@@ -19,9 +19,9 @@ public class ShowSerialForApproveAction extends Action {
 
     @Override
     public void action(Update update, BotUser botUser, String chatId, String text) {
-        messageSender.send(messageProvider.getItIsNeededSerialMessage(chatId));
-        messageSender.send(messageProvider.getSerialPosterMessage(chatId));
-        botUserService.setCommand(chatId, ActionAnswers.ANSWER_SERIAL_FOR_APPROVE);
+        sendMessage(messageProvider.getItIsNeededSerialMessage(chatId));
+        sendMessage(messageProvider.getSerialPosterMessage(chatId));
+        setCommand(chatId, ActionAnswers.ANSWER_SERIAL_FOR_APPROVE);
     }
 
     @Override

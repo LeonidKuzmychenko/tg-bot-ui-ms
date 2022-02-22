@@ -32,7 +32,7 @@
     "value": "Выберите один из предложенных вариантов."
   },
   {
-    "key": "answer unsubscribe all",
+    "key": "question unsubscribe all",
     "value": "Вы точно хотите отписаться от всех сериалов, на которые подписались?"
   },
   {
@@ -46,5 +46,17 @@
   {
     "key": "send id serial for unsubscribe",
     "value": "Чтобы отписаться от сериала, следущим сообщением отправьте его номер."
+  },
+  {
+    "key": "answer for unsubscribe all",
+    "value": "Вы были отписаны от всех сериалов"
+  },
+  {
+    "key": "answer for unsubscribe serial",
+    "value": "Вы были отписаны от сериала '***'"
+  },
+  {
+    "key": "unsubscribe from all serial has been close",
+    "value": "Отписка от всех сериалов была отменена"
   }
 ]

@@ -36,21 +36,21 @@ public class AnswerSerialForApproveAction extends Action {
     }
 
     private void approve(String chatId) {
-        messageSender.send(messageProvider.getHasBeenSubscribeMessage(chatId));
-        botUserService.setCommand(chatId, null);
+        sendMessage(messageProvider.getHasBeenSubscribeMessage(chatId));
+        setCommand(chatId, null);
     }
 
     private void next(String chatId) {
-        messageSender.send(messageProvider.getErrorMessage(chatId));
+        sendMessage(messageProvider.getErrorMessage(chatId));
     }
 
     private void close(String chatId) {
-        messageSender.send(messageProvider.getSerialNotFoundMessage(chatId));
-        botUserService.setCommand(chatId, null);
+        sendMessage(messageProvider.getSerialNotFoundMessage(chatId));
+        setCommand(chatId, null);
     }
 
     private void error(String chatId) {
-        messageSender.send(messageProvider.getChooseVariantFromOptionsMessage(chatId));
+        sendMessage(messageProvider.getChooseVariantFromOptionsMessage(chatId));
     }
 
     @Override
