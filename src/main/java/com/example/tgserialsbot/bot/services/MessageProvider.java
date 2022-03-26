@@ -4,10 +4,7 @@ import com.example.tgserialsbot.bot.constants.mapkey.ActionMessages;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
-import org.telegram.telegrambots.meta.api.objects.InputFile;
 
-import java.io.File;
 import java.util.Map;
 import java.util.function.Consumer;
 
@@ -133,13 +130,11 @@ public class MessageProvider {
         });
     }
 
-    public SendPhoto getSerialPosterMessage(String chatId) {
-        InputFile photoFile = new InputFile(new File("src/main/resources/test/photo.png"));
-        SendPhoto sendPhoto = new SendPhoto();
-        sendPhoto.setPhoto(photoFile);
-        sendPhoto.setChatId(chatId);
-        sendPhoto.setReplyMarkup(keyboardProvider.keyboardApproveSerial());
-        return sendPhoto;
+    public SendMessage getSerialInfoMessage(String chatId, String serialInfo) {
+        return getSendMessage(chatId, sendMessage -> {
+            sendMessage.setText(serialInfo);
+            sendMessage.setReplyMarkup(keyboardProvider.keyboardApproveSerial());
+        });
     }
 
     private SendMessage getSendMessage(String chatId, Consumer<SendMessage> consumer) {

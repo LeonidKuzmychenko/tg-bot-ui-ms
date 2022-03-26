@@ -1,6 +1,5 @@
 package com.example.tgserialsbot.bot;
 
-import com.example.tgserialsbot.bot.constants.action.ActionAnswers;
 import com.example.tgserialsbot.bot.model.BotUser;
 import com.example.tgserialsbot.bot.services.BotUserService;
 import com.example.tgserialsbot.bot.services.KeyboardProvider;
@@ -48,15 +47,15 @@ public abstract class Action {
         log.info("End action '{}'", getClass().getSimpleName());
     }
 
-    public void sendMessage(SendMessage sendMessage){
+    public void sendMessage(SendMessage sendMessage) {
         messageSender.send(sendMessage);
     }
 
-    public void sendMessage(SendPhoto sendPhoto){
+    public void sendMessage(SendPhoto sendPhoto) {
         messageSender.send(sendPhoto);
     }
 
-    public void setCommand(String chatId, String command){
+    public void setCommand(String chatId, String command) {
         botUserService.setCommand(chatId, command);
     }
 
