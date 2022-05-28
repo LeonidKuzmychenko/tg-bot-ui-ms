@@ -1,4 +1,9 @@
-HELP.md
+### Old ###
+/.idea/
+/.mvn/
+/target/
+
+### New ###
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -15,6 +20,7 @@ target/
 
 ### IntelliJ IDEA ###
 .idea
+.mvn
 *.iws
 *.iml
 *.ipr
@@ -31,11 +37,6 @@ build/
 
 ### VS Code ###
 .vscode/
-
-### Old ###
-/.idea/
-/.mvn/
-/target/
 
 # Compiled class file
 *.class
