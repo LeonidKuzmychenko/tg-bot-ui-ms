@@ -1,0 +1,17 @@
+server:
+  port: 7473
+
+api:
+  server:
+    host: http://localhost:8095
+    user: /v1/users
+
+telegram:
+  bot:
+    name: SerialSubscribeBot
+    token: 5240364048:AAFcpJL_bTkEERQQlIeYsO_7lA0iYnVaybg
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
