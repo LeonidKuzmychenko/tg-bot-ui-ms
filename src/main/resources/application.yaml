@@ -3,8 +3,8 @@ server:
 
 api:
   server:
-    host: http://server:8095
-    user: /v1/user
+    host: http://enginems:8095
+    user: /v1/users
 
 telegram:
   bot:

@@ -4,7 +4,7 @@ server:
 api:
   server:
     host: http://localhost:8095
-    user: /v1/user
+    user: /v1/users
 
 telegram:
   bot:
